@@ -6,6 +6,8 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+.btn[hidden]{display:none}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img,svg{display:block}
@@ -161,11 +163,30 @@ button{font-family:inherit}
 
 /* ---------- الهاتف ---------- */
 @media (max-width:760px){
-  .top{padding:8px 12px}
-  .top-nav a{padding:4px 8px;font-size:12px}
-  .top .btn-small{display:none}
+  .top{padding:8px 10px;gap:6px}
+  .logo svg{width:66px}
+  .top-nav{gap:0}
+  .top-nav a{padding:4px 5px}
+  .top-nav small{display:none}
+  .top-nav a{font-size:11px}
+  .top .start-btn{display:none}
+  .install-btn{padding:7px 12px;font-size:13px}
   .stages{grid-template-columns:1fr}
   .branches{flex-direction:column;align-items:center;gap:70px}
   .flyout{display:none}
   .lvlist{grid-template-columns:1fr}
 }
+
+/* ---------- نافذة تثبيت التطبيق ---------- */
+.install{position:fixed;inset:0;z-index:120;background:#000a;display:flex;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(3px)}
+.install[hidden]{display:none}
+.install-card{position:relative;width:100%;max-width:420px;background:#12121f;border:1px solid var(--line);border-radius:20px;padding:22px 20px 14px;
+  text-align:center;box-shadow:0 -10px 40px #0008;animation:up .35s ease}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.install-card img{margin:0 auto 8px;border-radius:16px;box-shadow:0 8px 24px #2dd4bf33}
+.install-card h3{margin:0 0 4px;font-size:20px}
+.install-card p{margin:0 0 12px;color:#c9c9d8;font-size:14px}
+.install-card ol{text-align:right;margin:0 0 12px;padding:12px 30px 12px 12px;background:#ffffff08;border-radius:12px;font-size:14px;line-height:2}
+.in-ic{display:inline-block;padding:0 6px;border-radius:6px;background:#ffffff18}
+.in-later{background:none;border:0;color:var(--muted);font-size:14px;margin-top:8px;padding:6px 14px;cursor:pointer}
+.install-btn{margin-inline-start:auto}

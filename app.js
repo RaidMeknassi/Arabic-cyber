@@ -42,7 +42,7 @@
       '<a class="soon" aria-disabled="true">' + NI + '<circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 7.2v9.6M18 11.2c0 4-6 3-12 6"/></svg><span>المتقدم</span><small>قريبًا</small></a>' +
       '<a class="soon" aria-disabled="true">' + NI + '<circle cx="12" cy="9" r="5.5"/><path d="m8.8 13.6-1.3 7 4.5-2.4 4.5 2.4-1.3-7"/></svg><span>الشهادات</span><small>قريبًا</small></a>' +
     '</nav>' +
-    '<a class="btn btn-small" href="level.html?l=b0">ابدأ الآن</a>';
+    '<a class="btn btn-small start-btn" href="level.html?l=b0">ابدأ الآن</a>';
   var hl = document.getElementById("hero-logo"); if (hl) hl.innerHTML = LOGO;
   var yr = document.getElementById("year"); if (yr) yr.textContent = new Date().getFullYear();
 
@@ -150,6 +150,68 @@
       try { done = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {} paint();
     });
   }
+
+  /* ---------- تثبيت التطبيق على الهاتف ---------- */
+  (function () {
+    if ("serviceWorker" in navigator) window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+    var standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+    if (standalone) return;                                   // مثبّت بالفعل
+    var ua = navigator.userAgent, isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var isMobile = isIOS || /android|mobile/i.test(ua);
+    var deferred = null, DKEY = "arcyber-install-later";
+
+    var box = document.createElement("div"); box.className = "install"; box.hidden = true;
+    box.setAttribute("role", "dialog"); box.setAttribute("aria-labelledby", "in-title");
+    box.innerHTML =
+      '<div class="install-card">' +
+        '<button class="close" type="button" aria-label="إغلاق">&times;</button>' +
+        '<img src="icons/icon-192.png" alt="" width="64" height="64">' +
+        '<h3 id="in-title">ثبّت التطبيق على هاتفك</h3>' +
+        '<p>افتح الدروس بلمسة واحدة من الشاشة الرئيسية، بملء الشاشة، ودون البحث عن الرابط.</p>' +
+        '<div class="in-ios" hidden><ol>' +
+          '<li>اضغط زر <b>المشاركة</b> <span class="in-ic">⬆︎</span> في أسفل Safari</li>' +
+          '<li>اختر <b>«إضافة إلى الشاشة الرئيسية»</b> ➕</li>' +
+          '<li>اضغط <b>«إضافة»</b></li></ol></div>' +
+        '<div class="in-other" hidden><ol>' +
+          '<li>افتح قائمة المتصفح <b>⋮</b></li>' +
+          '<li>اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b></li></ol></div>' +
+        '<button class="btn btn-full in-go" type="button">تثبيت الآن</button>' +
+        '<button class="in-later" type="button">لاحقًا</button>' +
+      '</div>';
+    document.body.appendChild(box);
+    var go = box.querySelector(".in-go");
+
+    function show() {
+      box.querySelector(".in-ios").hidden = !(isIOS && !deferred);
+      box.querySelector(".in-other").hidden = !(!isIOS && !deferred);
+      go.hidden = !deferred;
+      box.hidden = false;
+    }
+    function hide(later) {
+      box.hidden = true;
+      if (later) try { localStorage.setItem(DKEY, Date.now()); } catch (e) {}
+    }
+    box.querySelector(".close").onclick = function () { hide(true); };
+    box.querySelector(".in-later").onclick = function () { hide(true); };
+    box.addEventListener("click", function (e) { if (e.target === box) hide(true); });
+    go.onclick = function () {
+      if (!deferred) return;
+      deferred.prompt();
+      deferred.userChoice.finally(function () { deferred = null; hide(false); });
+    };
+
+    // زر دائم في الشريط العلوي
+    var btn = document.createElement("button"); btn.type = "button"; btn.className = "btn btn-small install-btn";
+    btn.textContent = "📲 تثبيت"; btn.onclick = show;
+    var topBar = document.getElementById("top"); if (topBar && isMobile) topBar.appendChild(btn);
+
+    window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferred = e; if (topBar && !btn.parentNode) topBar.appendChild(btn); });
+    window.addEventListener("appinstalled", function () { hide(false); if (btn.parentNode) btn.remove(); });
+
+    // تظهر النافذة تلقائيًا على الهاتف بعد ثانيتين (ولا تعود قبل 3 أيام إذا اخترت «لاحقًا»)
+    var last = 0; try { last = +localStorage.getItem(DKEY) || 0; } catch (e) {}
+    if (isMobile && Date.now() - last > 3 * 864e5) setTimeout(function () { if (overlay && !overlay.hidden) return; show(); }, 2000);
+  })();
 
   /* ---------- صفحة المستوى ---------- */
   var list = document.getElementById("level-list");
