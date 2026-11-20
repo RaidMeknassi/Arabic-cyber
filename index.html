@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الأمن السيبراني في 10 دقائق — خريطة الطريق</title>
+  <meta name="description" content="من مبتدئ تمامًا إلى محترف في الأمن السيبراني، درس واحد في 10 دقائق في كل مرة.">
+  <meta name="theme-color" content="#07070d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body class="home">
+  <header class="top" id="top"></header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-logo" id="hero-logo"></div>
+      <h1>من مبتدئ تمامًا<br><span>إلى محترف في الأمن السيبراني.</span></h1>
+      <p class="sub">اتبع الخريطة. شاهد درسًا مجانيًا مدته 10 دقائق، ثم طبّقه بنفسك.</p>
+
+      <div class="stages" aria-label="المراحل الثلاث">
+        <a class="stage-card st-b" href="#map"><b>المبتدئ</b><span>افهم أساسيات الحاسوب والشبكات والأمن.</span></a>
+        <div class="stage-card st-i"><em>قريبًا</em><b>المتوسط</b><span>تعلّم أدوات المحلل: SIEM والسجلات والتحقيق.</span></div>
+        <div class="stage-card st-a"><em>قريبًا</em><b>المتقدم</b><span>تخصّص: الدفاع، الاختبار الاختراقي، التحليل الجنائي.</span></div>
+      </div>
+
+      <div class="progress" aria-label="تقدّمك">
+        <div class="progress-top"><span>تقدّمك</span><span id="progress-text">0 / 0</span></div>
+        <div class="bar"><div id="bar-fill"></div></div>
+      </div>
+
+      <nav class="chips" id="chips" aria-label="انتقل إلى مستوى"></nav>
+      <p class="lock-note">مرّر على مستوى لترى دروسه، واضغط عليه لفتح صفحته &nbsp;·&nbsp; 🔒 = يحتوي على مختبر تطبيقي</p>
+    </section>
+
+    <div class="road" id="road">
+      <svg class="road-lines" id="road-lines" aria-hidden="true"></svg>
+      <section id="map" class="levels" aria-label="خريطة طريق المبتدئ"></section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> الأمن السيبراني في 10 دقائق</span>
+    <span>الفيديوهات على <a href="https://www.youtube.com/" target="_blank" rel="noopener">يوتيوب</a></span>
+  </footer>
+
+  <!-- نافذة الدرس -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="p-title">
+      <button class="close" id="p-close" aria-label="إغلاق">&times;</button>
+      <p class="p-track" id="p-track"></p>
+      <h3 id="p-title"></h3>
+      <div class="video" id="p-video"></div>
+      <div class="lab-box" id="p-lab" hidden></div>
+      <button class="btn btn-full" id="p-done" type="button">وضع علامة: تمّ</button>
+    </div>
+  </div>
+
+  <script src="data.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

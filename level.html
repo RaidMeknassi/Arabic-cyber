@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المستوى · الأمن السيبراني في 10 دقائق</title>
+  <meta name="description" content="من مبتدئ تمامًا إلى محترف في الأمن السيبراني، درس واحد في 10 دقائق في كل مرة.">
+  <meta name="theme-color" content="#07070d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body class="page-bg">
+  <header class="top" id="top"></header>
+
+  <main class="levelpage">
+    <section class="lvhero">
+      <a class="back" href="index.html#map">→ العودة إلى خريطة الطريق</a>
+      <span class="badge" id="lv-badge"></span>
+      <h1 id="lv-title"></h1>
+      <p class="lv-desc" id="lv-desc"></p>
+      <p id="lv-meta"></p>
+      <div class="lv-bar" id="lv-bar"><i></i></div>
+    </section>
+    <section class="lvlist" id="level-list" aria-label="دروس هذا المستوى"></section>
+    <nav class="lv-nav" id="lv-nav" aria-label="المستويات الأخرى"></nav>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> الأمن السيبراني في 10 دقائق</span>
+    <span>الفيديوهات على <a href="https://www.youtube.com/" target="_blank" rel="noopener">يوتيوب</a></span>
+  </footer>
+
+  <!-- نافذة الدرس -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="p-title">
+      <button class="close" id="p-close" aria-label="إغلاق">&times;</button>
+      <p class="p-track" id="p-track"></p>
+      <h3 id="p-title"></h3>
+      <div class="video" id="p-video"></div>
+      <div class="lab-box" id="p-lab" hidden></div>
+      <button class="btn btn-full" id="p-done" type="button">وضع علامة: تمّ</button>
+    </div>
+  </div>
+
+  <script src="data.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>
