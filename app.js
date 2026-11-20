@@ -3,19 +3,8 @@
   "use strict";
 
   /* ---------- الشعار ---------- */
-  var LOGO =
-    '<svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="الأمن السيبراني في 10 دقائق">' +
-    '<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0891b2"/></linearGradient>' +
-    '<linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>' +
-    '<rect x="160" y="6" width="40" height="14" rx="5" fill="url(#lg1)"/><rect x="174" y="18" width="12" height="12" fill="url(#lg1)"/>' +
-    '<path d="M100 120 A80 80 0 0 1 260 120" fill="none" stroke="url(#lg1)" stroke-width="16" stroke-linecap="round"/>' +
-    '<g stroke="#5eead4" stroke-width="5" stroke-linecap="round"><path d="M180 52v10"/><path d="M134 68l6 7"/><path d="M226 68l-6 7"/></g>' +
-    '<path class="needle" d="M180 116 L180 60" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/><circle cx="180" cy="116" r="8" fill="#5eead4"/>' +
-    '<text x="250" y="180" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-style="italic" font-size="104" fill="url(#lg1)">10</text>' +
-    '<text x="122" y="172" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="62" fill="#fff">دقائق</text>' +
-    '<path d="M48 196 H322 L308 244 H34 Z" fill="url(#lg2)"/>' +
-    '<text x="178" y="232" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="900" font-size="34" fill="#fff">الأمن السيبراني</text>' +
-    '</svg>';
+  var LOGO = '<img src="assets/logo.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني، من الصفر إلى الاحتراف" width="900" height="684">';
+  var LOGO_SMALL = '<img src="assets/logo-small.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني" width="300" height="228">';
 
   /* ---------- أيقونات المستويات ---------- */
   var S = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
@@ -35,7 +24,7 @@
   var NI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
   var top = document.getElementById("top");
   if (top) top.innerHTML =
-    '<a class="logo" href="index.html" aria-label="الصفحة الرئيسية">' + LOGO + '</a>' +
+    '<a class="logo" href="index.html" aria-label="الصفحة الرئيسية">' + LOGO_SMALL + '</a>' +
     '<nav class="top-nav" aria-label="القائمة الرئيسية">' +
       '<a href="index.html#map" class="on">' + NI + '<path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></svg><span>المبتدئ</span></a>' +
       '<a class="soon" aria-disabled="true">' + NI + '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg><span>المتوسط</span><small>قريبًا</small></a>' +
