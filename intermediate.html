@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المرحلة المتوسطة · الأمن السيبراني في 10 دقائق</title>
+  <meta name="description" content="من مبتدئ تمامًا إلى محترف في الأمن السيبراني، درس واحد في 10 دقائق في كل مرة.">
+  <meta name="theme-color" content="#0a0406">
+  <link rel="icon" href="favicon.png?v=4" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest?v=4">
+  <link rel="apple-touch-icon" href="icons/red-apple-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="أمن 10 دقائق">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body data-page="i" data-stage="i">
+  <header class="top" id="top"></header>
+
+  <main>
+    <section class="hero small">
+      <span class="stage-pill st-i">المرحلة 2 من 3</span>
+      <h1 id="st-title"></h1>
+      <p class="sub" id="st-desc"></p>
+
+      <div class="progress" aria-label="تقدّمك">
+        <div class="progress-top"><span>تقدّمك في هذه المرحلة</span><span id="progress-text">0 / 0</span></div>
+        <div class="bar"><div id="bar-fill"></div></div>
+      </div>
+      <nav class="chips" id="chips" aria-label="انتقل إلى مستوى"></nav>
+      <p class="lock-note">مرّر على مستوى لترى دروسه، واضغط عليه لفتح صفحته &nbsp;·&nbsp; 🔒 = مختبر تطبيقي &nbsp;·&nbsp; 🎓 = شهادة مقترحة</p>
+    </section>
+
+    <div class="road" id="road">
+      <svg class="road-lines" id="road-lines" aria-hidden="true"></svg>
+      <section id="map" class="levels" aria-label="خريطة الطريق"></section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> الأمن السيبراني في 10 دقائق</span>
+    <span><a href="certs.html">خريطة الشهادات</a> · الفيديوهات على <a href="https://www.youtube.com/" target="_blank" rel="noopener">يوتيوب</a></span>
+  </footer>
+
+  <!-- نافذة الدرس -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="p-title">
+      <button class="close" id="p-close" aria-label="إغلاق">&times;</button>
+      <p class="p-track" id="p-track"></p>
+      <h3 id="p-title"></h3>
+      <div class="video" id="p-video"></div>
+      <div class="topics" id="p-topics" hidden></div>
+      <div class="lab-box" id="p-lab" hidden></div>
+      <button class="btn btn-full" id="p-done" type="button">وضع علامة: تمّ</button>
+    </div>
+  </div>
+
+  <script src="data.js?v=6"></script>
+  <script src="app.js?v=6"></script>
+</body>
+</html>

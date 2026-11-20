@@ -64,8 +64,8 @@ button{font-family:inherit}
 .stage-card span{font-size:13px;opacity:.92;line-height:1.6;display:block}
 .stage-card em{position:absolute;top:12px;left:12px;font-style:normal;font-size:11px;font-weight:800;padding:2px 9px;border-radius:99px;background:#0006}
 .st-b{background:linear-gradient(135deg,#991b1b,#ef4444)}
-.st-i{background:linear-gradient(135deg,#9a3412,#f97316);opacity:.55}
-.st-a{background:linear-gradient(135deg,#881337,#fb7185);opacity:.55}
+.st-i{background:linear-gradient(135deg,#9a3412,#f97316)}
+.st-a{background:linear-gradient(135deg,#881337,#fb7185)}
 .progress{max-width:420px;margin:0 auto 22px}
 .progress-top{display:flex;justify-content:space-between;color:#c9c9d8;font-size:14px;margin-bottom:6px}
 .bar{height:6px;border-radius:99px;background:#ffffff14;overflow:hidden}
@@ -81,7 +81,6 @@ button{font-family:inherit}
 .road{position:relative;padding:30px 16px 70px;border-top:1px solid var(--line)}
 .road-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .levels{position:relative;display:flex;flex-direction:column;align-items:center;gap:56px;max-width:1000px;margin:0 auto}
-.branches{display:flex;justify-content:center;gap:56px;width:100%}
 .lv{position:relative;width:236px;max-width:100%}
 .lv-card{position:relative;display:block;width:100%;text-align:right;padding:12px;border-radius:12px;color:#fff;cursor:pointer;
   border:1px solid #ffffff40;overflow:hidden;
@@ -177,7 +176,6 @@ button{font-family:inherit}
   .top .start-btn{display:none}
   .install-btn{padding:7px 12px;font-size:13px}
   .stages{grid-template-columns:1fr}
-  .branches{flex-direction:column;align-items:center;gap:56px}
   .flyout{display:none}
   .lvlist{grid-template-columns:1fr}
 }
@@ -195,3 +193,54 @@ button{font-family:inherit}
 .in-ic{display:inline-block;padding:0 6px;border-radius:6px;background:#ffffff18}
 .in-later{background:none;border:0;color:var(--muted);font-size:14px;margin-top:8px;padding:6px 14px;cursor:pointer}
 .install-btn{margin-inline-start:auto}
+
+/* ---------- صفوف الخريطة والشهادات ---------- */
+.row{display:flex;justify-content:center;align-items:flex-start;gap:56px;width:100%}
+.row.wide{flex-wrap:wrap;gap:30px 26px;max-width:880px;padding:22px 20px;border:2px dashed #fb718566;border-radius:20px;background:#1a070bcc;position:relative;z-index:1}
+.col{display:flex;flex-direction:column;align-items:center;gap:26px}
+.row.wide .lv{width:236px}
+.certnode{display:flex;align-items:center;gap:10px;width:250px;max-width:100%;padding:9px 12px;border-radius:12px;
+  border:2px dashed #4ade80;background:#06200f;color:#dcfce7;text-align:right;position:relative;z-index:1;transition:.2s}
+.certnode:hover{background:#08301a;transform:translateY(-2px)}
+.c-ic{font-size:24px;flex:none}
+.c-tx{display:flex;flex-direction:column;min-width:0;line-height:1.45}
+.c-tx small{font-size:11px;color:#86efac;font-weight:700}
+.c-tx b{font-size:14px;font-weight:800}
+.c-tx em{font-style:normal;font-size:12px;color:#bbf7d0cc}
+.certnode.sm{width:236px;padding:6px 10px}
+.certnode.sm em{display:none}
+.certnode.sm .c-ic{font-size:18px}
+.certnode.sm b{font-size:12.5px}
+.fork{position:relative;z-index:1;padding:4px 18px;border-radius:99px;border:1.5px solid #fb7185;background:#3a0812;color:#fecdd3;font-weight:800;font-size:14px}
+.lv,.goal{position:relative;z-index:1}
+.goal{text-decoration:none;transition:.2s}
+.goal:hover{background:#ef444433}
+.lv:hover{z-index:30}
+.hero.small{padding-top:34px}
+.stage-pill{display:inline-block;padding:2px 14px;border-radius:99px;color:#fff;font-weight:800;font-size:13px}
+.stage-card.on{outline:2px solid #fff6;outline-offset:2px}
+/* محتوى الدرس في النافذة */
+.topics{margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#ffffff08;border:1px solid var(--line)}
+.topics[hidden]{display:none}
+.topics h4{margin:0 0 4px;font-size:15px;color:var(--c)}
+.topics ol{margin:0;padding:0;list-style:none}
+.topics li{padding:3px 0;font-size:15px;color:#e9dede}
+.topics code,.ls-sub code{font-family:inherit;direction:ltr;unicode-bidi:isolate;display:inline-block;color:var(--muted);font-size:12px;margin-left:8px}
+/* صفحة المستوى */
+.lv-extra{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.lv-extra:empty{display:none}
+.prac{padding:12px 14px;border-radius:12px;background:#f9731614;border:1px solid #f9731655;color:#fed7aa;font-size:15px}
+.lv-extra .certnode{width:auto;max-width:520px}
+/* صفحة الشهادات */
+.cert-stage{margin:0 0 26px}
+.cert-stage h2{font-size:22px;margin:0 0 12px}
+.cert-stage h2 a:hover{color:#f87171}
+.cert-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 12px}
+.cert-row .certnode{width:380px}
+.cert-row .after{color:var(--muted);font-size:14px;border-bottom:1px dashed var(--line)}
+.cert-row .after:hover{color:var(--text)}
+@media (max-width:760px){
+  .row,.row.wide{flex-direction:column;align-items:center;gap:40px}
+  .row.wide{padding:18px 10px}
+  .cert-row .certnode{width:100%}
+}

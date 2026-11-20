@@ -15,14 +15,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
-<body class="page-bg">
+<body class="page-bg" data-page="level">
   <header class="top" id="top"></header>
 
   <main class="levelpage">
     <section class="lvhero">
-      <a class="back" href="index.html#map">→ العودة إلى خريطة الطريق</a>
+      <a class="back" id="lv-back" href="index.html#map">→ العودة إلى خريطة الطريق</a>
       <span class="badge" id="lv-badge"></span>
       <h1 id="lv-title"></h1>
       <p class="lv-desc" id="lv-desc"></p>
@@ -30,12 +30,13 @@
       <div class="lv-bar" id="lv-bar"><i></i></div>
     </section>
     <section class="lvlist" id="level-list" aria-label="دروس هذا المستوى"></section>
+    <div class="lv-extra" id="lv-extra"></div>
     <nav class="lv-nav" id="lv-nav" aria-label="المستويات الأخرى"></nav>
   </main>
 
   <footer class="foot">
     <span>&copy; <span id="year"></span> الأمن السيبراني في 10 دقائق</span>
-    <span>الفيديوهات على <a href="https://www.youtube.com/" target="_blank" rel="noopener">يوتيوب</a></span>
+    <span><a href="certs.html">خريطة الشهادات</a> · الفيديوهات على <a href="https://www.youtube.com/" target="_blank" rel="noopener">يوتيوب</a></span>
   </footer>
 
   <!-- نافذة الدرس -->
@@ -45,12 +46,13 @@
       <p class="p-track" id="p-track"></p>
       <h3 id="p-title"></h3>
       <div class="video" id="p-video"></div>
+      <div class="topics" id="p-topics" hidden></div>
       <div class="lab-box" id="p-lab" hidden></div>
       <button class="btn btn-full" id="p-done" type="button">وضع علامة: تمّ</button>
     </div>
   </div>
 
-  <script src="data.js?v=5"></script>
-  <script src="app.js?v=5"></script>
+  <script src="data.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
