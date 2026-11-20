@@ -154,7 +154,7 @@
     box.innerHTML =
       '<div class="install-card">' +
         '<button class="close" type="button" aria-label="إغلاق">&times;</button>' +
-        '<img src="icons/icon-192.png" alt="" width="64" height="64">' +
+        '<img src="icons/red-192.png" alt="" width="64" height="64">' +
         '<h3 id="in-title">ثبّت التطبيق على هاتفك</h3>' +
         '<p>افتح الدروس بلمسة واحدة من الشاشة الرئيسية، بملء الشاشة، ودون البحث عن الرابط.</p>' +
         '<div class="in-ios" hidden><ol>' +
