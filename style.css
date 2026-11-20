@@ -25,7 +25,7 @@ button{font-family:inherit}
 /* ---------- الشريط العلوي ---------- */
 .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:8px 22px;background:rgba(10,4,6,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo img{width:100px;height:auto}
+.logo .logo-anim{width:84px}
 .top-nav{display:flex;gap:6px}
 .top-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 14px;border-radius:12px;
   color:var(--muted);font-weight:700;font-size:14px;transition:.2s}
@@ -45,16 +45,23 @@ button{font-family:inherit}
 
 /* ---------- الواجهة ---------- */
 .hero{position:relative;text-align:center;padding:26px 20px 34px}
-.hero-logo img{width:min(440px,86vw);height:auto;margin:0 auto;filter:drop-shadow(0 12px 40px #ef444455)}
+.hero-logo{width:min(320px,72vw);margin:0 auto;filter:drop-shadow(0 12px 40px #ef444455)}
+/* شعار متحرك: عقرب الساعة يدور حول المحور */
+.logo-anim{position:relative;display:block;overflow:hidden}
+.logo-anim img{display:block;width:100%;height:auto}
+.logo-anim .needle{position:absolute;inset:0;height:100%;transform-origin:59.18% 37.71%;
+  animation:clock-sweep 3.6s ease-in-out infinite alternate;will-change:transform}
+@keyframes clock-sweep{from{transform:rotate(-8deg)}to{transform:rotate(172deg)}}
+@media (prefers-reduced-motion:reduce){.logo-anim .needle{animation:none}}
 .hero h1{font-size:clamp(30px,5.4vw,54px);line-height:1.3;margin:14px 0 8px;font-weight:900}
 .hero h1 span{background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{max-width:560px;margin:0 auto 26px;color:#c9c9d8;font-size:18px}
-.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:740px;margin:0 auto 26px}
-.stage-card{position:relative;text-align:right;padding:16px 18px;border-radius:14px;color:#fff;min-height:104px;
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:620px;margin:0 auto 24px}
+.stage-card{position:relative;text-align:right;padding:12px 14px;border-radius:12px;color:#fff;min-height:84px;
   border:1px solid #ffffff30;transition:.2s}
 .stage-card:hover{transform:translateY(-3px)}
-.stage-card b{display:block;font-size:18px}
-.stage-card span{font-size:14px;opacity:.92}
+.stage-card b{display:block;font-size:16px}
+.stage-card span{font-size:13px;opacity:.92;line-height:1.6;display:block}
 .stage-card em{position:absolute;top:12px;left:12px;font-style:normal;font-size:11px;font-weight:800;padding:2px 9px;border-radius:99px;background:#0006}
 .st-b{background:linear-gradient(135deg,#991b1b,#ef4444)}
 .st-i{background:linear-gradient(135deg,#9a3412,#f97316);opacity:.55}
@@ -73,27 +80,27 @@ button{font-family:inherit}
 /* ---------- خريطة الطريق ---------- */
 .road{position:relative;padding:30px 16px 70px;border-top:1px solid var(--line)}
 .road-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.levels{position:relative;display:flex;flex-direction:column;align-items:center;gap:70px;max-width:1000px;margin:0 auto}
-.branches{display:flex;justify-content:center;gap:70px;width:100%}
-.lv{position:relative;width:290px;max-width:100%}
-.lv-card{position:relative;display:block;width:100%;text-align:right;padding:16px;border-radius:14px;color:#fff;cursor:pointer;
+.levels{position:relative;display:flex;flex-direction:column;align-items:center;gap:56px;max-width:1000px;margin:0 auto}
+.branches{display:flex;justify-content:center;gap:56px;width:100%}
+.lv{position:relative;width:236px;max-width:100%}
+.lv-card{position:relative;display:block;width:100%;text-align:right;padding:12px;border-radius:12px;color:#fff;cursor:pointer;
   border:1px solid #ffffff40;overflow:hidden;
   background:linear-gradient(160deg,color-mix(in srgb,var(--c) 75%,#fff 25%) 0%,color-mix(in srgb,var(--c) 70%,#000 30%) 55%,color-mix(in srgb,var(--c) 45%,#000 55%) 100%);
   box-shadow:0 18px 40px -14px color-mix(in srgb,var(--c) 70%,transparent),inset 0 1px 0 #ffffff55;transition:transform .25s,box-shadow .25s}
 .lv-card:hover{transform:translateY(-4px) scale(1.02)}
 .lv-card.done{outline:3px solid #4ade80;outline-offset:3px}
-.badge{display:inline-block;padding:1px 12px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.3px;
+.badge{display:inline-block;padding:0 10px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.3px;
   background:#ffffff2e;border:1px solid #ffffff55;color:#fff}
-.app-ic{width:68px;height:68px;margin:6px auto 10px;border-radius:16px;display:grid;place-items:center;
+.app-ic{width:54px;height:54px;margin:4px auto 8px;border-radius:13px;display:grid;place-items:center;
   background:linear-gradient(180deg,color-mix(in srgb,var(--c) 55%,#fff 45%) 0 22%,color-mix(in srgb,var(--c) 65%,#000 35%) 22%);
   box-shadow:0 8px 18px #0004,inset 0 -3px 0 #0003}
-.app-ic svg{width:36px;height:36px;margin-top:6px}
-.lv-card h2{margin:0;font-size:20px;line-height:1.4;font-weight:800}
-.lv-meta{font-size:13px;opacity:.85}
+.app-ic svg{width:28px;height:28px;margin-top:5px}
+.lv-card h2{margin:0;font-size:16.5px;line-height:1.45;font-weight:800}
+.lv-meta{font-size:12px;opacity:.85}
 .lv-bar{height:4px;border-radius:99px;background:#0005;margin-top:10px;overflow:hidden}
 .lv-bar i{display:block;height:100%;width:0;background:#fff;transition:width .5s}
-.job{margin-top:12px;padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,#fbbf24,#fde68a);color:#3b2a05;
-  font-size:13px;font-weight:800;text-align:center;line-height:1.5}
+.job{margin-top:10px;padding:6px 8px;border-radius:9px;background:linear-gradient(90deg,#fbbf24,#fde68a);color:#3b2a05;
+  font-size:12px;font-weight:800;text-align:center;line-height:1.5}
 /* قائمة الدروس عند المرور */
 .flyout{position:absolute;top:0;right:calc(100% + 18px);width:280px;opacity:0;visibility:hidden;transform:translateX(10px);
   transition:.2s;z-index:20}
@@ -162,7 +169,7 @@ button{font-family:inherit}
 /* ---------- الهاتف ---------- */
 @media (max-width:760px){
   .top{padding:8px 10px;gap:6px}
-  .logo img{width:72px}
+  .logo .logo-anim{width:66px}
   .top-nav{gap:0}
   .top-nav a{padding:4px 5px}
   .top-nav small{display:none}
@@ -170,7 +177,7 @@ button{font-family:inherit}
   .top .start-btn{display:none}
   .install-btn{padding:7px 12px;font-size:13px}
   .stages{grid-template-columns:1fr}
-  .branches{flex-direction:column;align-items:center;gap:70px}
+  .branches{flex-direction:column;align-items:center;gap:56px}
   .flyout{display:none}
   .lvlist{grid-template-columns:1fr}
 }

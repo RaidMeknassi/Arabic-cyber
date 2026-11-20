@@ -3,8 +3,8 @@
   "use strict";
 
   /* ---------- الشعار ---------- */
-  var LOGO = '<img src="assets/logo.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني، من الصفر إلى الاحتراف" width="900" height="684">';
-  var LOGO_SMALL = '<img src="assets/logo-small.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني" width="300" height="228">';
+  var LOGO = '<span class="logo-anim"><img class="base" src="assets/logo-base.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني، من الصفر إلى الاحتراف" width="900" height="684"><img class="needle" src="assets/logo-needle.webp" alt="" aria-hidden="true" width="900" height="684"></span>';
+  var LOGO_SMALL = '<span class="logo-anim"><img class="base" src="assets/logo-small-base.webp" alt="10 دقائق — خارطة طريق الأمن السيبراني" width="300" height="228"><img class="needle" src="assets/logo-small-needle.webp" alt="" aria-hidden="true" width="300" height="228"></span>';
 
   /* ---------- أيقونات المستويات ---------- */
   var S = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">';
